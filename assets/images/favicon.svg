@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Reen Business Centre emblem">
+  <rect width="64" height="64" rx="16" fill="#173B2E"/>
+  <path d="M14 44 L32 18 L50 44" fill="none" stroke="#D99B38" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21 44 V33 C21 29.5 23.8 27 27.5 27 H36.5 C40.2 27 43 29.5 43 33 V44" fill="none" stroke="#F8F5EF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="13" r="3" fill="#C8643B"/>
+  <line x1="12" y1="48" x2="52" y2="48" stroke="#C8643B" stroke-width="3" stroke-linecap="round"/>
+</svg>

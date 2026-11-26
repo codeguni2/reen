@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Placeholder: Reen Mini Mart shelves and counter">
+  <defs>
+    <linearGradient id="bgMart" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#214E3D"/>
+      <stop offset="100%" stop-color="#143327"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgMart)"/>
+  <circle cx="660" cy="460" r="180" fill="#D99B38" fill-opacity="0.14"/>
+  <circle cx="150" cy="130" r="150" fill="#C8643B" fill-opacity="0.14"/>
+
+  <!-- Storefront awning & shelving illustration -->
+  <rect x="210" y="155" width="380" height="270" rx="16" fill="#F8F5EF" fill-opacity="0.06" stroke="#F8F5EF" stroke-opacity="0.28" stroke-width="2.5"/>
+  <!-- Awning stripes -->
+  <path d="M195 155 H605 L590 198 H210 Z" fill="#C8643B"/>
+  <rect x="255" y="155" width="45" height="43" fill="#F8F5EF" fill-opacity="0.9"/>
+  <rect x="345" y="155" width="45" height="43" fill="#F8F5EF" fill-opacity="0.9"/>
+  <rect x="435" y="155" width="45" height="43" fill="#F8F5EF" fill-opacity="0.9"/>
+  <rect x="525" y="155" width="45" height="43" fill="#F8F5EF" fill-opacity="0.9"/>
+
+  <!-- Shelves & items -->
+  <line x1="240" y1="265" x2="450" y2="265" stroke="#D99B38" stroke-width="4" stroke-linecap="round"/>
+  <rect x="255" y="228" width="26" height="37" rx="4" fill="#F8F5EF" fill-opacity="0.9"/>
+  <rect x="290" y="234" width="26" height="31" rx="4" fill="#D99B38"/>
+  <rect x="325" y="224" width="24" height="41" rx="4" fill="#C8643B"/>
+  <rect x="360" y="232" width="32" height="33" rx="4" fill="#F8F5EF" fill-opacity="0.85"/>
+  <rect x="402" y="228" width="26" height="37" rx="4" fill="#D99B38" fill-opacity="0.85"/>
+
+  <line x1="240" y1="335" x2="450" y2="335" stroke="#D99B38" stroke-width="4" stroke-linecap="round"/>
+  <rect x="255" y="298" width="34" height="37" rx="5" fill="#D99B38" fill-opacity="0.9"/>
+  <rect x="298" y="303" width="28" height="32" rx="5" fill="#F8F5EF" fill-opacity="0.9"/>
+  <rect x="336" y="295" width="30" height="40" rx="5" fill="#C8643B" fill-opacity="0.9"/>
+  <rect x="376" y="302" width="52" height="33" rx="5" fill="#F8F5EF" fill-opacity="0.85"/>
+
+  <!-- Drink cooler on right -->
+  <rect x="475" y="222" width="88" height="178" rx="8" fill="#F8F5EF" fill-opacity="0.12" stroke="#F8F5EF" stroke-opacity="0.7" stroke-width="2.5"/>
+  <line x1="485" y1="275" x2="553" y2="275" stroke="#F8F5EF" stroke-opacity="0.5" stroke-width="2"/>
+  <line x1="485" y1="325" x2="553" y2="325" stroke="#F8F5EF" stroke-opacity="0.5" stroke-width="2"/>
+  <rect x="240" y="368" width="210" height="34" rx="6" fill="#F8F5EF" fill-opacity="0.9"/>
+
+  <!-- Caption label -->
+  <rect x="235" y="472" width="330" height="36" rx="18" fill="#F8F5EF" fill-opacity="0.12" stroke="#D99B38" stroke-opacity="0.45"/>
+  <text x="400" y="495" text-anchor="middle" fill="#F8F5EF" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="1.4">REEN MINI MART • RETAIL (4:3)</text>
+  <text x="400" y="534" text-anchor="middle" fill="#E6DEC8" fill-opacity="0.8" font-family="system-ui, -apple-system, sans-serif" font-size="13">Image Placeholder — Replace with mini mart shelves or counter photo</text>
+</svg>

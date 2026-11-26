@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Signature dish at Reen Restaurant">
+  <defs>
+    <linearGradient id="bgDish" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9E4726"/>
+      <stop offset="100%" stop-color="#6B2D16"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgDish)"/>
+  <circle cx="400" cy="365" r="245" fill="#D99B38" fill-opacity="0.12"/>
+
+  <!-- Plated signature meal illustration -->
+  <circle cx="400" cy="370" r="165" fill="#F8F5EF"/>
+  <circle cx="400" cy="370" r="128" fill="none" stroke="#D99B38" stroke-opacity="0.55" stroke-width="2.5"/>
+
+  <!-- Stylized grilled fish/chicken, nshima/sides & greens -->
+  <path d="M315 365 C335 315 415 310 455 348 C435 390 365 402 315 365 Z" fill="#C8643B"/>
+  <circle cx="442" cy="415" r="38" fill="#F2EAD9" stroke="#D99B38" stroke-width="3"/>
+  <circle cx="348" cy="422" r="28" fill="#173B2E"/>
+  <circle cx="378" cy="436" r="22" fill="#2A624B"/>
+  <!-- Warm steam lines -->
+  <path d="M365 260 C355 240 375 225 365 205" fill="none" stroke="#F8F5EF" stroke-opacity="0.7" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M405 250 C395 230 415 215 405 195" fill="none" stroke="#D99B38" stroke-opacity="0.85" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M445 260 C435 240 455 225 445 205" fill="none" stroke="#F8F5EF" stroke-opacity="0.7" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Cutlery -->
+  <line x1="195" y1="265" x2="195" y2="480" stroke="#F8F5EF" stroke-width="5" stroke-linecap="round"/>
+  <line x1="605" y1="265" x2="605" y2="480" stroke="#F8F5EF" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="215" y="648" width="370" height="38" rx="19" fill="#F8F5EF" fill-opacity="0.16" stroke="#F8F5EF" stroke-opacity="0.4"/>
+  <text x="400" y="672" text-anchor="middle" fill="#F8F5EF" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="1.3">FRESH LOCAL &amp; CONTINENTAL CUISINE (1:1)</text>
+  <text x="400" y="714" text-anchor="middle" fill="#F8F5EF" fill-opacity="0.82" font-family="system-ui, -apple-system, sans-serif" font-size="14">Image Placeholder — Replace with signature dish photo</text>
+</svg>
