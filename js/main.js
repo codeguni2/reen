@@ -5,7 +5,6 @@
 (function () {
   'use strict';
 
-  const OWNER_EMAIL = 'queenmusonda@gmail.com';
   const WHATSAPP_NUMBER = '260977794427';
 
   // ---------------------------------------------------------------------------
@@ -374,10 +373,9 @@
   }
 
   // ---------------------------------------------------------------------------
-  // 8. Inquiry Form -> Delivers to queenmusonda@gmail.com + WhatsApp Option
+  // 8. Inquiry Form -> Opens WhatsApp Directly with Pre-Filled Inquiry
   // ---------------------------------------------------------------------------
   const inquiryForm = document.getElementById('inquiry-form');
-  const submitBtn = document.getElementById('inquiry-submit-btn');
   const formFeedback = document.getElementById('form-feedback');
 
   if (inquiryForm) {
@@ -471,11 +469,10 @@
       inquiryForm.addEventListener('invalid', (e) => syncAria(e.target), true);
     }
 
-    inquiryForm.addEventListener('submit', async (event) => {
+    inquiryForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
       if (!inquiryForm.checkValidity()) {
-        // Trigger visual validation on untouched required fields
         inquiryForm.querySelectorAll('input, select, textarea').forEach((el) => {
           if (!el.validity.valid) {
             el.classList.add('user-invalid-fallback');
@@ -493,18 +490,6 @@
       const service = String(data.get('service') || '').trim();
       const message = String(data.get('message') || '').trim();
 
-      const subject = `[Reen Business Centre] ${service} — ${name}`;
-      const bodyLines = [
-        `New Inquiry from Reen Business Centre Website`,
-        `--------------------------------------------`,
-        `Name: ${name}`,
-        `Phone / Email: ${contact}`,
-        `Service Needed: ${service}`,
-        `Dates / Details: ${message || 'None specified'}`,
-      ];
-      const mailtoUrl = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\r\n'))}`;
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(OWNER_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-
       const waLines = [
         `Hello Reen Business Centre!`,
         `Name: ${name}`,
@@ -514,86 +499,32 @@
       if (message) waLines.push(`Details: ${message}`);
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waLines.join('\n'))}`;
 
-      const originalLabel = submitBtn?.textContent || 'Send Inquiry';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending Inquiry…';
-      }
-
-      let deliveredViaAjax = false;
-
-      // Attempt background email delivery via FormSubmit when hosted over http/https
-      if (window.location.protocol.startsWith('http')) {
-        try {
-          const response = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify({
-              _subject: subject,
-              Name: name,
-              Contact: contact,
-              'Service Needed': service,
-              Details: message || 'None specified',
-            }),
-          });
-          const result = await response.json().catch(() => null);
-          if (response.ok && (result?.success === 'true' || result?.success === true)) {
-            deliveredViaAjax = true;
-          }
-        } catch {
-          deliveredViaAjax = false;
-        }
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      }
-
-      // If opened locally via file:// or FormSubmit isn't activated yet, trigger email client directly
-      if (!deliveredViaAjax) {
-        window.location.href = mailtoUrl;
+      // Open WhatsApp directly inside the synchronous submit gesture so popups aren't blocked
+      const popup = window.open(waUrl, '_blank', 'noopener,noreferrer');
+      if (!popup) {
+        window.location.href = waUrl;
       }
 
       if (formFeedback) {
         formFeedback.replaceChildren();
 
         const title = document.createElement('strong');
-        title.textContent = deliveredViaAjax
-          ? `Inquiry sent to ${OWNER_EMAIL}!`
-          : `Ready to send to ${OWNER_EMAIL}!`;
+        title.textContent = `Opening WhatsApp for ${name}…`;
 
         const desc = document.createElement('span');
-        desc.textContent = deliveredViaAjax
-          ? `Thank you, ${name}. We have emailed your ${service.toLowerCase()} details to ${OWNER_EMAIL} and will get back to you via ${contact}.`
-          : `We opened your email app pre-addressed to ${OWNER_EMAIL} with all of your ${service.toLowerCase()} details. You can also send via Gmail Web or WhatsApp below:`;
+        desc.textContent = `Your ${service.toLowerCase()} inquiry is pre-filled and ready to send on WhatsApp (0977 794 427). If WhatsApp didn't open automatically, tap below:`;
 
         const actions = document.createElement('div');
         actions.className = 'form-status-actions';
-
-        const emailLink = document.createElement('a');
-        emailLink.className = 'btn btn-forest btn-sm';
-        emailLink.href = mailtoUrl;
-        emailLink.textContent = 'Email App';
-
-        const gmailLink = document.createElement('a');
-        gmailLink.className = 'btn btn-outline-forest btn-sm';
-        gmailLink.href = gmailUrl;
-        gmailLink.target = '_blank';
-        gmailLink.rel = 'noopener noreferrer';
-        gmailLink.textContent = 'Open in Gmail';
 
         const waLink = document.createElement('a');
         waLink.className = 'btn btn-terracotta btn-sm';
         waLink.href = waUrl;
         waLink.target = '_blank';
         waLink.rel = 'noopener noreferrer';
-        waLink.textContent = 'Send on WhatsApp';
+        waLink.textContent = 'Open WhatsApp Chat';
 
-        actions.append(emailLink, gmailLink, waLink);
+        actions.append(waLink);
         formFeedback.append(title, desc, actions);
         formFeedback.hidden = false;
         formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
